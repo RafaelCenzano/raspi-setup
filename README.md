@@ -34,7 +34,7 @@ tunnels:
     addr: 22
 ```
 - Run `mkdir devclubpi` and `cd devclubpi`.
-- Run `git clone https://github.com/lowell-dev-club/pi-ssh-vnc` and `cd pi-ssh-vnc`.
+- Run `git clone https://github.com/lowell-dev-club/pi-ssh-vnc.git` and `cd pi-ssh-vnc`.
 - Create a gmail app password. [Instructions here](https://support.google.com/accounts/answer/185833?hl=en). Create an app password for gmail and no specific device.
 - Next create the file `config.py` in the `pi-ssh-vnc` directory and write this code and replace the place holders:
 ```
