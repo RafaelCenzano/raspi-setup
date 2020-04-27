@@ -14,4 +14,43 @@ Note: This was originally tested and successfully shipped on the raspberry pi ze
 - Run `sudo raspi-config` and update the tool.
 - Next, expand the filesystem to make sure the pi can use the maximum amount of storage availble.
 - Next, select `Interfacing Options` and enable ssh and vnc.
-- Lastly, select `Advanced Options` and change the resolution to MODE 85 1280 x 720 60Hz 16:9.
+- Lastly, select `Advanced Options` and change the resolution to `MODE 85` 1280 x 720 60Hz 16:9.
+
+## Main setup
+
+- Signup for a free account on [ngrok.com](https://ngrok.com/)
+- Download the linux-arm (The proccessor the pi zero is 32, if using a 64 bit proccessor download the 64 bit version) ngrok zip file and place it in your home directory.
+- Run `unzip` and file name of the zip you just downloaded.
+- Next, run `./ngrok authtoken TOKENHERE` and replace `TOKENHERE` with your given authtoken
+- This should generate a configuration file at `/home/USER/.ngrok2/ngrok.yml` (replace USER with yout username), open the file and add the following configurations (the tunnels names can be changed):
+```
+tunnels:
+  flaskhttp:
+    proto: http
+    addr: 8000
+  pissh:
+    proto: tcp
+    addr: 22
+```
+- Run `mkdir devclubpi` and `cd devclubpi`.
+- Using git run `git clone https://github.com/lowell-dev-club/pi-ssh-vnc` and `cd pi-ssh-vnc`.
+- Create a gmail app password. [Instructions here](https://support.google.com/accounts/answer/185833?hl=en). Create an app password for gmail and no set device.
+- Next create the file `config.py` in the `pi-ssh-vnc` directory and write this code and replace the place holders:
+```
+emailUser = 'EMAIL@DOMAIN.COM'
+emailPass = 'YOUR APP PASSWORD'
+```
+- Lastly edit the rc.local file located at `/etc/rc.local`. This can be done with `sudo vi /etc/rc.local` or with your favorite editor. But it is required to add sudo as the file is under root priviledges. Add these lines above the `exit 0`:
+```
+# HEADLESS vnc server setup
+if /usr/bin/pgrep -U pi vncserver &gt;/dev/null ; then 
+        /bin/sh -c '/usr/bin/sudo -u pi /usr/bin/vncserver -kill :1 &gt;/dev/null 2&gt;&;1 || :'
+fi 
+/bin/sh -c '/usr/bin/sudo -u pi /usr/bin/vncserver'
+
+# Portforwarding
+sudo -u pi /home/pi/ngrok start --all &
+python3 /home/pi/devclubpi/pi-ssh-vnc/pi_ssh_vnc.py &
+```
+- Now as long as everything was setup properly and all software is downloaded and up to date your pi is now accessible from anywhere.
+- To test this or to use it remotely run `reboot` and check the email you used for `pi-ssh-vnc`. This also works if you unplug everything from the pi except the power cord or restart or on boot.
