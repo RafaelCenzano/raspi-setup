@@ -8,6 +8,7 @@ Note: This was originally tested and successfully shipped on the raspberry pi ze
 - Use the rasbian full desktop image for the operating system of the pi.
 - Boot with a monitor, keyboard, and mouse connected and go through the rasbian setup.
 - After rebooting, run `sudo apt-get update` then `sudo apt-get upgrade --fix-missing` to bring developer tools up to date.
+- Make sure when you run `python3 -V` the version is 3.6 or above. 
 
 ## Configuration
 
@@ -33,14 +34,14 @@ tunnels:
     addr: 22
 ```
 - Run `mkdir devclubpi` and `cd devclubpi`.
-- Using git run `git clone https://github.com/lowell-dev-club/pi-ssh-vnc` and `cd pi-ssh-vnc`.
-- Create a gmail app password. [Instructions here](https://support.google.com/accounts/answer/185833?hl=en). Create an app password for gmail and no set device.
+- Run `git clone https://github.com/lowell-dev-club/pi-ssh-vnc` and `cd pi-ssh-vnc`.
+- Create a gmail app password. [Instructions here](https://support.google.com/accounts/answer/185833?hl=en). Create an app password for gmail and no specific device.
 - Next create the file `config.py` in the `pi-ssh-vnc` directory and write this code and replace the place holders:
 ```
 emailUser = 'EMAIL@DOMAIN.COM'
 emailPass = 'YOUR APP PASSWORD'
 ```
-- Lastly edit the rc.local file located at `/etc/rc.local`. This can be done with `sudo vi /etc/rc.local` or with your favorite editor. But it is required to add sudo as the file is under root priviledges. Add these lines above the `exit 0`:
+- Lastly edit the rc.local file located at `/etc/rc.local`. This can be done with `sudo vi /etc/rc.local` or with your favorite editor. But it is required to add sudo as the file is under root priviledges. Add these lines above the `exit 0`, make sure to edit and correct any paths that may be different for your pi:
 ```
 # HEADLESS vnc server setup
 if /usr/bin/pgrep -U pi vncserver &gt;/dev/null ; then 
