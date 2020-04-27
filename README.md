@@ -54,4 +54,4 @@ sudo -u pi /home/pi/ngrok start --all &
 python3 /home/pi/devclubpi/pi-ssh-vnc/pi_ssh_vnc.py &
 ```
 - Now as long as everything was setup properly and all software is downloaded and up to date your pi is now accessible from anywhere.
-- To test this or to use it remotely run `reboot` and check the email you used for `pi-ssh-vnc`. This also works if you unplug everything from the pi except the power cord or restart or on boot.
+- To test this or to use it remotely run `reboot` and check the email you used for `pi-ssh-vnc`. This also works if you unplug everything from the pi except the power cord on restart or on boot.
