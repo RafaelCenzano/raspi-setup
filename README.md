@@ -14,4 +14,4 @@ Note: This was originally tested and successfully shipped on the raspberry pi ze
 - Run `sudo raspi-config` and update the tool.
 - Next, expand the filesystem to make sure the pi can use the maximum amount of storage availble.
 - Next, select `Interfacing Options` and enable ssh and vnc.
-- Lastly, select `Advanced Options` and select MODE 85 1280 x 720 60Hz 16:9.
+- Lastly, select `Advanced Options` and change the resolution to MODE 85 1280 x 720 60Hz 16:9.
