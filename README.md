@@ -7,4 +7,4 @@ Note: This was originally tested and successfully shipped on the raspberry pi ze
 
 - Use the rasbian full desktop image for the operating system of the pi.
 - Boot with a monitor, keyboard, and mouse connected and go through the rasbian setup.
-- After rebooting, run `sudo apt-get update` then `sudo apt-get upgrade` to bring developer tools up to date.
+- After rebooting, run `sudo apt-get update` then `sudo apt-get upgrade --fix-missing` to bring developer tools up to date.
