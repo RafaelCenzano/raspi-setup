@@ -1,5 +1,5 @@
 # raspi-setup
-Documentation of setting up raspberry pi for club use
+Documentation of setting up raspberry pi for club use. This works on most computers including chromebooks.
 
 Note: This was originally tested and successfully shipped on the raspberry pi zero w.
 
@@ -55,3 +55,16 @@ python3 /home/pi/devclubpi/pi-ssh-vnc/pi_ssh_vnc.py &
 ```
 - Now as long as everything was setup properly and all software is downloaded and up to date your pi is now accessible from anywhere.
 - To test this or to use it remotely run `reboot` and check the email you used for `pi-ssh-vnc`. This also works if you unplug everything from the pi except the power cord on restart or on boot.
+
+## Using the pi from your personal computer
+
+### Setup
+
+- Download [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/)
+- Make sure your computer can or has an app to allow you to ssh to a device.
+
+### Usage
+
+- For normal SSH access run `ssh pi@0.tcp.ngrok.io -p PORTNUMBERHERE` and your done!
+- For VNC and SSH access run `ssh -L 5900:localhost:5900 pi@0.tcp.ngrok.io -p PORTNUMBERHERE`.
+- Connect to localhost:5900 in VNC Viewer to VNC to the pi.
