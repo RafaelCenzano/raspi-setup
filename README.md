@@ -63,6 +63,10 @@ python3 /home/pi/devclubpi/pi-ssh-vnc/pi_ssh_vnc.py &
 - Download [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/)
 - Make sure your computer can or has an app to allow you to ssh to a device.
 
+For chromebooks or anyone who wants to use or only has access to a browser (google chrome):
+- Install [VNC Viewer for Chrome](https://chrome.google.com/webstore/detail/vnc%C2%AE-viewer-for-google-ch/iabmpiboiopbgfabjmgeedhcmjenhbla?hl=en)
+- Install [SSH for Chrome](https://chrome.google.com/webstore/detail/secure-shell-app/pnhechapfaindjhompbnflcldabbghjo?hl=en)
+
 ### Usage
 
 - For normal SSH access run `ssh pi@0.tcp.ngrok.io -p PORTNUMBERHERE` and your done!
