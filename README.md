@@ -23,7 +23,7 @@ Note: This was originally tested and successfully shipped on the raspberry pi ze
 - Download the linux-arm (The proccessor the pi zero is 32, if using a 64 bit proccessor download the 64 bit version) ngrok zip file and place it in your home directory.
 - Run `unzip` and file name of the zip you just downloaded.
 - Next, run `./ngrok authtoken TOKENHERE` and replace `TOKENHERE` with your given authtoken
-- This should generate a configuration file at `/home/USER/.ngrok2/ngrok.yml` (replace USER with yout username), open the file and add the following configurations (the tunnels names can be changed):
+- This should generate a configuration file at `/home/USER/.ngrok2/ngrok.yml` (replace USER with yout username), open the file and add the following configurations (the tunnels names can be changed, You can't create more then 2 http tunnels, or 1 tcp and 1 http tunnel, if you go over ngrok blocks it from running because it will create too many tunnels on a free account):
 ```
 tunnels:
   flaskhttp:
