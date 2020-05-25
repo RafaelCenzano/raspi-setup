@@ -1,5 +1,5 @@
 # raspi-setup
-Documentation of setting up raspberry pi for club use. This works on most computers including chromebooks.
+Documentation of setting up raspberry pi for [club](https://www.lowelldev.club) use. Conencting and access to the pi works on most computers including chromebooks.
 
 Note: This was originally tested and successfully shipped on the raspberry pi zero w.
 
